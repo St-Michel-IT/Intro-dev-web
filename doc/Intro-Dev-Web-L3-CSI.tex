@@ -83,7 +83,18 @@
 
 
     \section{Les ressources du Web}\label{sec:ressources}
-    \begin{frame}{Les protocoles}{Websocket, exercice \execcounterdispinc}
+
+    \begin{frame}{Les ressources du Web}{Dvisions en briques}
+        \begin{columns}
+            \column{0.6\textwidth}
+            1 des 4 règles pour la direction de l'esprit de Descartes~: \textquote{Diviser chacune des difficultés que j'examinerais, en autant de parcelles qu'il se pourrait et qu'il serait requis pour les mieux résoudre.}.
+            \column{0.4\textwidth}
+            \centering
+            \includegraphics[width=6cm]{image/Descartes}
+        \end{columns}
+    \end{frame}
+
+    \begin{frame}{Les ressources du Web}{Analyse des composants, exercice \execcounterdispinc}
         Listez toutes les ressources du Web que vous connaissez.
         \begin{itemize}
             \item ...
@@ -109,7 +120,7 @@
         \footnote{\label{sendbird-protocole}Protocoles de communication WebSocket vs. HTTP, \url{https://sendbird.com/fr/developer/tutorials/websocket-vs-http-communication-protocols}}
         Si on définit le Web comme les applications entre un navigateur et un serveur Web.
         \begin{dangercolorbox}
-            Ce qui est très réducteur car il ne prend pas en compte les applications mobiles, les API, les applications desktop, mail, etc.
+            Ce qui est très réducteur, car il ne prend pas en compte les applications mobiles, les API, les applications desktop, mail, etc.
 
             Mais c'est l'unique sujet de ce module\ldots
         \end{dangercolorbox}
@@ -128,7 +139,7 @@
 
         HTTP date de 1989, inventé au CERN par Tim Berners-Lee\footnote{The birth of the Web, \url{https://home.cern/science/computing/birth-web}}. WebSocket est apparu en 2011, inventé par Ian Hickson, également au CERN.
         \bigbreak
-        WebSocket, un protocole de communication full-duplex, est relativement plus récent et convient mieux aux applications en temps réel telles (ou presque\ldots) que le live chat dans les applications mobiles, les notifications et oul les appels audio ou vidéo.
+        WebSocket, un protocole de communication full-duplex, est relativement plus récent et convient mieux aux applications en temps réel (ou presque\ldots) comme le live chat dans les applications mobiles, les notifications et oul les appels audio ou vidéo.
 
         Websocket a été standardisé en 2011\footnote{The WebSocket Protocol, \url{https://datatracker.ietf.org/doc/html/rfc6455}}
     \end{frame}
@@ -169,9 +180,9 @@
 
                 \item \href{https://github.com/uWebSockets/uWebSockets}{µWebSockets}~: Déclinaison plus légère et plus performante de WebSocket et écrite en \href{https://isocpp.org/}{C++11} et en \href{https://nodejs.org/fr/}{Node.js}.
 
-                \item \href{https://github.com/ClusterWS/ClusterWS}{ClusteWS~}: Framework léger, rapide et puissant qui permet de construire des application en \href{https://nodejs.org/fr/}{Node.js}.
+                \item \href{https://github.com/ClusterWS/ClusterWS}{ClusteWS~}: Framework léger, rapide et puissant qui permet de construire des applications en \href{https://nodejs.org/fr/}{Node.js}.
 
-                \item \href{http://socket.io}{Socket.IO}~: API WebSocket puissante et multiplateformes en \href{https://nodejs.org}{Node.js}.
+                \item \href{http://socket.io}{Socket.IO}~: API WebSocket puissante et multiplateforme en \href{https://nodejs.org}{Node.js}.
 
                 \item \href{https://socketcluster.io/\#!/}{SocketCluster}~: Framework open source en temps réel en \href{https://nodejs.org}{Node.js}.
 
@@ -222,6 +233,144 @@
     \begin{frame}{Les protocoles}{HTTP\label{sendbird-protocole}}
         \centering
         \includegraphics[width=12cm]{image/Tutorial-WebSocket-vs.-HTTP-communication-diagram}
+    \end{frame}
+
+    \begin{frame}{HTTP}{Introduction aux méthodes HTTP\footnote{\label{mozilla-http-methods}Méthodes de requête HTTP, \url{https://developer.mozilla.org/fr/docs/Web/HTTP/Methods}}}
+        \begin{itemize}
+            \item HTTP définit des méthodes de requête pour interagir avec les ressources.
+            \item Ces méthodes sont souvent appelées \textit{verbes HTTP}.
+            \item Les méthodes partagent parfois des fonctionnalités comme la \textit{sécurité}, l'\textit{idempotence}, ou la possibilité d'être \textit{mise en cache}.
+        \end{itemize}
+    \end{frame}
+
+    \begin{frame}{HTTP}{Méthodes courantes\cref{mozilla-http-methods}}
+        \begin{itemize}
+            \item \lstinline{GET} : Récupère une ressource, sans modifier l'état du serveur (idempotence).
+            Autorisée dans les \lstinline{<form>} HTML.
+            \item \lstinline{HEAD} : Similaire à \lstinline{GET}~, sans le corps de la réponse.
+            \item \lstinline{POST} : Envoie des données, créant ou modifiant une ressource.
+            Autorisée dans les \lstinline{<form>} HTML.
+            \item \lstinline{PUT} : Remplace la ressource avec les données envoyées.
+            \item \lstinline{DELETE} : Supprime une ressource.
+        \end{itemize}
+        \begin{dangercolorbox}
+            \lstinline{POST} et \lstinline{PUT} sont compatibles avec les formulaires, mais à quoi donc servent alors les autres~?
+        \end{dangercolorbox}
+    \end{frame}
+
+    \begin{frame}{HTTP}{Autres méthodes\cref{mozilla-http-methods}}
+        \begin{itemize}
+            \item \lstinline{CONNECT} : Établit un tunnel vers le serveur cible.
+            \item \lstinline{OPTIONS} : Renvoie les options de communication avec la ressource.
+            \item \lstinline{TRACE} : Effectue un test aller-retour sur le chemin suivi.
+            \item \lstinline{PATCH} : Applique des modifications partielles à une ressource.
+        \end{itemize}
+    \end{frame}
+
+    \begin{frame}{HTTP}{Les URLs\footnote{Top REST API URL naming convention standards, \url{https://www.theserverside.com/video/Top-REST-API-URL-naming-convention-standards}}}
+        \begin{tiny}
+            Guidelines API REST~:
+            \begin{itemize}
+                \item Utilisez uniquement des lettres minuscules dans les URLs des API RESTful.
+                \item Pour les espaces, utilisez kebab-case, et non snake\_case ou des espaces.
+                \item Construisez les URIs avec des noms, pas des verbes.
+                \item Utilisez les méthodes HTTP appropriées pour effectuer une opération.
+                \item Les appels d'API REST qui retournent une collection doivent être au pluriel.
+                \item Une URL qui retourne un résultat unique doit être au singulier.
+                \item N'incluez pas d'extensions de fichier.
+                \item Utilisez les en-têtes pour garder les URIs propres.
+                \item N'identifiez pas les opérations de création, lecture, mise à jour et suppression (CRUD) dans l'URL~.
+                \item Structurez les URIs librement selon la hiérarchie de votre modèle de données.
+                \item Utilisez des paramètres de requête pour le filtrage et la recherche.
+                \item Ne dévoilez pas le fonctionnement interne de votre architecture.
+                \item Faites des URLs courtes, intuitives et lisibles.
+                \item Protégez-vous contre les injections SQL~.
+                \item Incluez la version de l'API REST à la base de l'URI~.
+            \end{itemize}
+        \end{tiny}
+    \end{frame}
+
+    \begin{frame}{HTTP}{Introduction à Content-Type\footnote{\label{mozilla-content-type}Content-Type, \url{https://developer.mozilla.org/fr/docs/Web/HTTP/Headers/Content-Type}}}
+        \begin{itemize}
+            \item \textbf{Content-Type} : Indique le type MIME de la ressource.
+            \item Utilisé dans les réponses pour informer le client du type de contenu renvoyé.
+            \item Utilisé dans les requêtes POST/PUT pour indiquer au serveur le type de données envoyées.
+        \end{itemize}
+        \bigbreak
+        Pourquoi pas dans les GET~?
+
+        La donnée est toujours dans l'URL et non dans le corps de la requête comme pour le POST.
+        C'est donc inutile.
+    \end{frame}
+
+    \begin{frame}{HTTP}{Directives de Content-Type\cref{mozilla-content-type}}
+        \begin{itemize}
+            \item \lstinline{media-type} : Type MIME des données.
+            \item \lstinline{charset} : Encodage des caractères.
+            \item \lstinline{boundary} : Limites pour les entités multipart.
+        \end{itemize}
+    \end{frame}
+
+    \begin{frame}[fragile]{HTTP}{Exemple : Formulaires HTML\cref{mozilla-content-type}}
+        \begin{lstlisting}[language=HTML]
+<form action="/" method="post" enctype="multipart/form-data">
+  <input type="text" name="description" value="du texte" />
+  <input type="file" name="monFichier" />
+  <button type="submit">Envoyer</button>
+</form>
+        \end{lstlisting}
+        \begin{itemize}
+            \item Requête POST envoyée avec Content-Type multipart/form-data.
+        \end{itemize}
+        \begin{lstlisting}[language=HTML]
+<form action="/recherche" method="get">
+    <input type="text" name="q" value="recherche" />
+    <button type="submit">Rechercher</button>
+</form>
+        \end{lstlisting}
+        \begin{itemize}
+            \item Requête GET envoyée avec Content-Type application/x-www-form-urlencoded.
+        \end{itemize}
+
+    \end{frame}
+
+
+    \begin{frame}{Tableau des codes de statut HTTP\footnote{Codes de réponse HTTP, \url{https://developer.mozilla.org/fr/docs/Web/HTTP/Status}}}
+        \begin{tabular}{|p{1.5cm}|p{9.5cm}|}
+            \hline
+            \textbf{Code} & \textbf{Description}                                                      \\
+            \hline
+            100-199       & Réponses informatives (e.g. 100 Continue, 101 Switching Protocols)        \\
+            \hline
+            200-299       & Succès (e.g. 200 OK, 201 Created)                                         \\
+            \hline
+            300-399       & Redirections (e.g. 301 Moved Permanently, 302 Found)                      \\
+            \hline
+            400-499       & Erreurs client (e.g. 400 Bad Request, 404 Not Found)                      \\
+            \hline
+            500-599       & Erreurs serveur (e.g. 500 Internal Server Error, 503 Service Unavailable) \\
+            \hline
+        \end{tabular}
+    \end{frame}
+
+
+    \begin{frame}{HTTP}{L'approche frameworkless}
+        La plupart des langages comme Python ou Java viennent avec des libraires pour traiter les URL, les méthodes HTTP, les requêtes, \textit{etc}.
+        \bigbreak
+        \begin{itemize}
+            \item Pourquoi, comment, expliquer le succès des frameworks webs~?
+            \item  Quel(s) désavantage(s) ont les librairies natives~?
+            \item  Quel(s) désavantage(s) ont les frameworks~?
+        \end{itemize}
+        \bigbreak
+        Exercice \execcounterdispinc~: Développer un serveur HTTP en Python sans librairie tierce à partir de ce tutoriel \url{https://python.doctor/page-python-serveur-web-creer-rapidement}~.
+
+        Le compléter avec tous les éléments vus précédemment, content-type, méthodes HTTP, URL.
+    \end{frame}
+
+    \begin{frame}{HTTP}{Le serveur web de 25 lignes}
+        \centering
+        \includegraphics[width=12cm]{image/25-lines-server} \\ \url{https://www.youtube.com/watch?v=7GBlCinu9yg} \\
     \end{frame}
 
 
