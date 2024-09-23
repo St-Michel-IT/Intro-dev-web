@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 # coding: utf-8
 # import the required libraries
 import os
@@ -29,7 +29,7 @@ html = f"""<!DOCTYPE html>
     <h1>{name if name else "Inconnu"}</h1>
     <p>Vous avez envoyé la requête suivantes: {arguments}</p>
     <p>Avec la méthode: {method}</p>
-    <p>Avec la méthode: {content_type}</p>
+    <p>Avec la Content Type: {content_type}</p>
     <form action="/index.py" method="post">
         <input type="text" name="name" value="" placeholder="Votre nom"/>
         <input type="submit" name="send" value="Envoyer information au serveur">

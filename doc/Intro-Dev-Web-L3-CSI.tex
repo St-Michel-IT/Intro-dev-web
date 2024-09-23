@@ -94,7 +94,7 @@
         \end{columns}
     \end{frame}
 
-    \begin{frame}{Les ressources du Web}{Analyse des composants, exercice \execcounterdispinc}
+    \begin{frame}{Les ressources du Web}{Analyse des composants, exercice \execcounterdispinc{}}
         Listez toutes les ressources du Web que vous connaissez.
         \begin{itemize}
             \item ...
@@ -142,12 +142,12 @@
         WebSocket, un protocole de communication full-duplex, est relativement plus récent et convient mieux aux applications en temps réel (ou presque\ldots) comme le live chat dans les applications mobiles, les notifications et ou les appels audio ou vidéo.
 
         Websocket a été standardisé en 2011\footnote{The WebSocket Protocol, \url{https://datatracker.ietf.org/doc/html/rfc6455}}.
-        Il est géré par le Javascript du navigateur.
+        Il est géré par le JavaScript du navigateur.
     \end{frame}
 
     \subsection{WebSocket}\label{subsec:websocket}
 
-    \begin{frame}{Les protocoles}{Websocket, exercice \execcounterdispinc}
+    \begin{frame}{Les protocoles}{Websocket, exercice \execcounterdispinc{}}
         \begin{itemize}
             \item Que veut dire full-duplex~?
             \item Y-a-t-il une contradiction avec une architecture client/serveur~?
@@ -209,10 +209,10 @@
         \end{scriptsize}
     \end{frame}
 
-    \begin{frame}{Les protocoles}{Websocket, exercice \execcounterdispinc}
+    \begin{frame}{Les protocoles}{Websocket, exercice \execcounterdispinc{}}
         Dans un groupe de deux ou trois~:
         \begin{itemize}
-            \item Développer une page HTML avec un Javascript se connectant à un serveur WebSocket avec la techno/librairie de votre choix.
+            \item Développer une page HTML avec un JavaScript se connectant à un serveur WebSocket avec la techno/librairie de votre choix.
             \item Développer un serveur WebSocket avec la techno/librairie de votre choix.
             \item Les livrables, codes source \textbf{commentés} et captures d'écran, sont à déposer dans Teams.
         \end{itemize}
@@ -255,7 +255,7 @@
             \item \lstinline{DELETE} : Supprime une ressource.
         \end{itemize}
         \begin{dangercolorbox}
-            \lstinline{POST} et \lstinline{PUT} sont compatibles avec les formulaires, mais à quoi donc servent alors les autres~?
+            \lstinline{POST} et \lstinline{GET} sont compatibles avec les formulaires, mais à quoi donc servent alors les autres~?
         \end{dangercolorbox}
     \end{frame}
 
@@ -339,17 +339,17 @@
     \begin{frame}{Tableau des codes de statut HTTP\footnote{Codes de réponse HTTP, \url{https://developer.mozilla.org/fr/docs/Web/HTTP/Status}}}
         \begin{tabular}{|p{1.5cm}|p{9.5cm}|}
             \hline
-            \textbf{Code} & \textbf{Description}                                                      \\
+            \textbf{Code} & \textbf{Description}                                                         \\
             \hline
-            100-199       & Réponses informatives (e.g. 100 Continue, 101 Switching Protocols)        \\
+            100-199       & Réponses informatives (e.g. 100 Continue, 101 Switching Protocols)           \\
             \hline
-            200-299       & Succès (e.g. 200 OK, 201 Created)                                         \\
+            200-299       & Succès (e.g. 200 OK, 201 Created)                                            \\
             \hline
-            300-399       & Redirections (e.g. 301 Moved Permanently, 302 Found)                      \\
+            300-399       & Redirections (e.g. 301 Moved Permanently, 302 Found)                         \\
             \hline
-            400-499       & Erreurs client (e.g. 400 Bad Request, 404 Not Found)                      \\
+            400-499       & Erreurs client (e.g. 400 Bad Request, 404 Not Found, 405 Method Not Allowed) \\
             \hline
-            500-599       & Erreurs serveur (e.g. 500 Internal Server Error, 503 Service Unavailable) \\
+            500-599       & Erreurs serveur (e.g. 500 Internal Server Error, 503 Service Unavailable)    \\
             \hline
         \end{tabular}
     \end{frame}
@@ -364,7 +364,7 @@
             \item  Quel(s) désavantage(s) ont les frameworks~?
         \end{itemize}
         \bigbreak
-        Exercice \execcounterdispinc~: Développer un serveur HTTP en Python sans librairie tierce à partir de ce tutoriel \url{https://python.doctor/page-python-serveur-web-creer-rapidement}~.
+        Exercice \execcounterdispinc{}~: Développer un serveur HTTP en Python sans librairie tierce à partir de ce tutoriel \url{https://python.doctor/page-python-serveur-web-creer-rapidement}~.
 
         Le compléter avec tous les éléments vus précédemment, content-type, méthodes HTTP, URL.
     \end{frame}
@@ -375,12 +375,269 @@
     \end{frame}
 
 
+    \section{Frameworks}\label{sec:framewoks}
+
+
+    \section{Définition d'un frameworks}\label{subsec:framewok-definition}
+
+    \begin{frame}{Les Frameworks}{Qu'est-ce qu'un framework en programmation et en ingénierie~?\footnote{Qu'est-ce qu'un framework en programmation et en ingénierie ?, \url{https://aws.amazon.com/fr/what-is/framework/}}}
+        \begin{small}
+            En génie logiciel et en programmation, un framework est un ensemble de composants logiciels réutilisables qui permettent de développer de nouvelles applications plus efficacement.
+            La réutilisation du développement et de la recherche existants est un principe essentiel dans tous les domaines de l'ingénierie.
+            Par exemple, les ingénieurs électriciens utilisent des composants électroniques existants pour fabriquer de nouveaux appareils.
+            Les fabricants de composants suivent des normes et des spécifications prédéterminées pour garantir l'utilisabilité des composants.
+            \bigbreak
+            De même, les frameworks logiciels contiennent des modules de code réutilisables basés sur des normes et protocoles logiciels spécifiques.
+            Les frameworks peuvent également définir et appliquer certaines règles d'architecture logicielle ou certains processus métier, afin que de nouvelles applications puissent être développées de manière standardisée.
+            \bigbreak
+            Les allergiques aux anglicismes parlent de cadriciel.
+        \end{small}
+    \end{frame}
+
+    \begin{frame}{Les Frameworks}{Qu'est-ce qu'un framework web?}
+        On dénombre principalement 3 types de frameworks web~:
+        \begin{itemize}
+            \item \textbf{Back-End}, comme Django, Laravel, NextJS
+            \item \textbf{Front-End orienté composant}, comme React, Angular Vue
+            \item \textbf{Front-End CSS}, comme Bootstrap
+        \end{itemize}
+    \end{frame}
+
+    \subsection{Framework front-end CSS}\label{subsec:framewok-css}
+
+    \begin{frame}{Les Frameworks}{Framework front-end CSS}
+        Utilisent le CSS pour modifier l'affichage par défaut des éléments HTML.
+
+        Mais en plus, les classes qui peuvent être ajoutées aux balises HTML pour plus de flexibilité.
+
+        Ils ne sont souvent pas uniquement CSS, mais contiennent également des éléments JavaScript pour des fonctionnalités plus dynamiques comme les pop-up.
+        \bigbreak
+        En plus de ce framework, du CSS propre à l'identité visuelle souhaitée peut venir surcharger celui du framework (au niveau des couleurs, typo, \textit{etc}).
+        \bigbreak
+        Ils sont souvent complémentaires d'un back-end ayant un moteur de templating HTML, car ils peuvent s'intégrer à ce dernier.
+        \bigbreak
+        Parmi des simples et populaires actuellement~:
+        \begin{itemize}
+            \item \textbf{Bootstrap 5}
+            \item \textbf{Tail wind}
+        \end{itemize}
+    \end{frame}
+
+    \begin{frame}[fragile]{Les Frameworks}{Framework front-end CSS, exemple de code}
+        \begin{lstlisting}[language=HTML,basicstyle=\tiny\ttfamily]
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fournisseur - Fondation Alia</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {background-color: #f5f5f5;}
+...
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="container">
+                <a class="navbar-brand" href="#">
+                    <img src="https://fondationalia.fr/wp-content/themes/interlude-VSHA/images/Logo-header.svg"
+                        alt="Logo de la fondation Alia" width="80"></a>
+                <h1 class="text-center">Articles</h1>
+            </div>
+        </nav>
+        <div class="container">
+ ...
+        <footer>&copy; 2024 Fondation Alia - Tous droits réservés</footer>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
+        \end{lstlisting}
+    \end{frame}
+
+    \begin{frame}{Les Frameworks}{Framework front-end CSS, les tendances}
+        \centering
+        \includegraphics[width=11cm]{image/css-trends}
+    \end{frame}
+
+    \begin{frame}{Les Frameworks}{Frameworks front-end CSS, exercice \execcounterdispinc{}}
+        À l'aide de Bootstrap 5 ou Tailwind, développer 2 pages HTML ayant un look and feel moderne et agréable à regarder~\emoji{face-with-spiral-eyes}~:
+        \begin{itemize}
+            \item Un formulaire qui liste des articles avec un bouton pour en ajouter un avec la balise HTML \lstinline{form}~.
+            \item Une page de liste des articles avec la balise HTML \lstinline{table}~.
+            \item Les 2 pages ont des header et footer identiques.
+        \end{itemize}
+        \bigbreak
+        \begin{columns}
+            \column{0.5\textwidth}
+            \centering
+            \includegraphics[width=6cm]{image/form-item}
+            \column{0.5\textwidth}
+            \centering
+            \includegraphics[width=6cm]{image/list-items}
+        \end{columns}
+    \end{frame}
+
+    \subsection{Framework front-end orienté composant}\label{subsec:framewok-component}
+
+    \begin{frame}{Les Frameworks}{Framework front-end orienté composant}
+        Les frameworks front-end orientés composants sont des librairies qui permettent de construire des interfaces utilisateur à partir de composants réutilisables.
+        \bigbreak
+        Les composants sont des éléments d'interface utilisateur autonomes, réutilisables et indépendants qui peuvent être assemblés pour créer des interfaces utilisateur plus complexes.
+        \bigbreak
+        Ils sont idéals en front-end d'une API.
+        Et peuvent donc être complémentaire d'un back-end qui sert le JSON.
+        Backend agnostique à un UI pouvant être utilisé par d'autres front-ends comme celui d'une application mobile.
+    \end{frame}
+
+    \begin{frame}{Les Frameworks}{Framework front-end orienté composant}
+        Pour ne pas à avoir beaucoup de CSS, ils peuvent appeler une librairie CSS type Bootstrap.
+        \bigbreak
+        Un composant est un élément qui vient avec son HTML/CSS/JS ou TS propre.
+        \bigbreak
+        Parmi les plus populaires~:
+        \begin{itemize}
+            \item \textbf{React}
+            \item \textbf{Angular}
+            \item \textbf{Vue}
+        \end{itemize}
+    \end{frame}
+
+    \begin{frame}[fragile]{Les Frameworks}{Framework front-end orienté composant}
+
+        \begin{columns}
+            \column{0.2\textwidth}
+            \centering
+            \includegraphics[width=2.5cm]{image/react-beginner-project-structure}
+            \column{0.8\textwidth}
+            \begin{dangercolorbox}
+                La courbe d'apprentissage de ces derniers et plus raide que pour un framework CSS.
+                Ils ne font pas partie du scope de cette matière.
+            \end{dangercolorbox}
+            Exemple d'un composant de type bouton~:
+            \begin{lstlisting}[language=Java,basicstyle=\tiny\ttfamily]
+import * as React from 'react';
+const App = () => {
+  const [isOpen, setOpen] = React.useState(false);
+  const handleClick = () => {
+    setOpen(!isOpen);
+  };
+  return (
+    <div>
+      <button type="button" onClick={handleClick}>
+        Click Me
+      </button>
+      {isOpen && <div>Content</div>}
+    </div>
+  );
+};
+export default App;
+            \end{lstlisting}
+        \end{columns}
+    \end{frame}
+
+    \begin{frame}{Les Frameworks}{Framework front-end orienté composant, les tendances}
+        \centering
+        \includegraphics[width=11cm]{image/front-compo-trends}
+    \end{frame}
+
+    \subsection{Framework back-end}\label{subsec:framewok-back-end}
+
+    \begin{frame}{Les Frameworks}{Framework back-end}
+        Les frameworks back-end sont des librairies qui permettent de construire des applications web en fournissant des fonctionnalités de base autour du HTTP et du templating HTML.
+        \bigbreak
+        Ils sont souvent utilisés pour construire des API REST (JSON).
+        Le moteur de templating permet un meilleur SEO (référencement naturel) qu'une UI générée \textit{server-side} car le rendu est plus rapide.
+        \bigbreak
+        Parmi les plus populaires~:
+        \begin{itemize}
+            \item \textbf{Django} en Python
+            \item \textbf{Flask} en Python
+            \item \textbf{FastAPI} en Python
+            \item \textbf{Laravel} en PHP
+            \item \textbf{Spring} en Java
+            \item \textbf{NextJS} en JavaScript
+        \end{itemize}
+    \end{frame}
+
+    \begin{frame}{Les Frameworks}{Framework back-end, Flask}
+        \begin{small}
+            Utilise Jinja2 comme moteur de templating, il peut donc servir du JSON ou du HTML à partir de ces templates.
+            \bigbreak
+            Il communique avec le serveur web grâce au WSGI\footnote{WSGI, \url{https://perso.liris.cnrs.fr/pierre-antoine.champin/2017/progweb-python/cours/cm1.html\#id2}}.
+            \bigbreak
+            Il vient avec un serveur de développement, mais en production, il est utilisé avec\footnote{Self-Hosted Options, \url{https://flask.palletsprojects.com/en/3.0.x/deploying/\#self-hosted-options}}~:
+            \begin{itemize}
+                \item \href{https://flask.palletsprojects.com/en/3.0.x/deploying/gunicorn/}{Gunicorn}
+                \item \href{https://flask.palletsprojects.com/en/3.0.x/deploying/waitress/}{Waitress}
+                \item \href{https://flask.palletsprojects.com/en/3.0.x/deploying/mod_wsgi/}{mod\_wsgi} de Apache
+                \item \href{https://flask.palletsprojects.com/en/3.0.x/deploying/uwsgi/}{uWSGI} de Nginx
+                \item \href{https://flask.palletsprojects.com/en/3.0.x/deploying/gevent/}{gevent}
+                \item \href{https://flask.palletsprojects.com/en/3.0.x/deploying/eventlet/}{eventlet}
+                \item \href{https://flask.palletsprojects.com/en/3.0.x/deploying/asgi/}{ASGI}
+            \end{itemize}
+        \end{small}
+    \end{frame}
+
+    \begin{frame}{Les Frameworks}{Framework back-end, Flask\footnote{Project Layout, \url{https://flask.palletsprojects.com/en/2.3.x/tutorial/layout/}}}
+        C'est un des frameworks les plus simples à prendre en main.
+        Voir le \href{https://www.digitalocean.com/community/tutorials/how-to-make-a-web-application-using-flask-in-python-3}{tutoriel Flask de Digital Ocean}.
+        \bigbreak
+        \begin{columns}
+            \column{0.3\textwidth}
+            \centering
+            \includegraphics[width=3cm]{image/flask-project-structure}
+            \column{0.7\textwidth}
+            On y trouve~:
+            \begin{itemize}
+                \item Les ressources statiques HTML, CSS, JS dans le dossier \lstinline{static/}~.
+                \item Les tests dans \lstinline{tests/}~.
+                \item Les templates HTML dans \lstinline{templates/}~.
+                \item Les applications Flask \lstinline{auth.py} et \lstinline{blog.py} avec les routes.
+                \item \ldots
+            \end{itemize}
+        \end{columns}
+    \end{frame}
+    
+    \begin{frame}{Les Frameworks}{Framework back-end, les tendances}
+        \centering
+        \includegraphics[width=11cm]{image/back-end-trends}
+    \end{frame}
+    
+    \begin{frame}{Les Frameworks}{Framework back-end, exercices}
+        Exercice \execcounterdispinc{}, avec Flask, \textit{Donner vie} aux fichiers HTML développés précédemment~:
+        \bigbreak
+        \begin{columns}
+            \column{0.6\textwidth}
+            \begin{itemize}
+                \item Utiliser les templates pour n'écrire qu'une fois le header et le footer et les fichiers statiques pour le CSS et JS.
+                Configurer Flask pour utiliser ces dossiers.
+                \item Ne pas développer de base de données complexe.
+                Un dictionnaire pour stocker les données du formulaire suffira.
+            \end{itemize}
+            \column{0.4\textwidth}
+            \centering
+            \includegraphics[width=5cm]{image/html-alive}
+        \end{columns}
+    \end{frame}
+
+    \begin{frame}{Les Frameworks}{Framework back-end, exercices}
+        Exercice \execcounterdispinc{}, avec Flask, intégrer les méthodes d'appel à la BDD du script \url{https://github.com/St-Michel-IT/Intro-dev-web/blob/master/customer_database.py}~:
+        \begin{itemize}
+            \item Sous forme d'API JSON, inspirée de la nomenclature et des bonnes pratiques REST.
+            \item Utiliser le verbe HTTP adapté à la fonction de la méthode appelée, (car c'est une API).
+            \item Il n'y a donc que les routes à développer, elle retourne un JSON avec la méthode Flask \lstinline{flask.jsonify}
+            \item API donc pas de dossier \lstinline{static}~, ni même de template dans ce cas simple.
+            \item Certaines méthodes ne retournant rien, utiliser les exceptions pour retourner le bon status HTTP.
+        \end{itemize}
+    \end{frame}
+
+
     \section{Licence CC}\label{sec:licence}
 
     \begin{frame}{Licence}{Licence Creative Commons}
         Support de cours sous licence Creative Commons BY-NC-ND~.
         \bigbreak
-        Vous pouvez donc, partager, copier, distribuer le document.
+        Vous pouvez donc partager, copier, distribuer le document.
         \bigbreak
         Attribution requise à PapIT SASU - Pas d’utilisation commerciale - Pas de modification
         \bigbreak
