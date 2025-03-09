@@ -1,11 +1,11 @@
 # Introduction au Développement Web
 
-Compétences :
+Compétences :
 * Réaliser une interface HTML/CSS
 * Lire/Écrire/Modifier des données dans une base de données avec PHP
 * Gérer un formulaire
 
-Programme :
+Programme :
 
 1. HTML
 
