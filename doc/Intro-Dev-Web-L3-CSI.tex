@@ -27,19 +27,20 @@
         \tableofcontents
     \end{frame}
 
-
     \section{Programme du module}\label{sec:programme-du-module}
     \begin{frame}{Introduction au Développement Web}{Compétences}
         Programme officiel du module~:
         \begin{itemize}
-            \item Réaliser une interface HTML/CSS
-            \item Lire/Écrire/Modifier des données dans une base de données avec PHP
-            \item Gérer un formulaire
+            \item Introduction aux Frameworks Back-end
+            \item Présentation des Frameworks Back-end
+            \item Avantages et inconvénients des Frameworks Back-end
+            \item Choix du framework en fonction des besoins du projet
+            \item Comparaison entre différents Frameworks Symfony, Laravel, Django, Spring Boot\ldots
+            \item Installation et configuration du framework choisi
         \end{itemize}
         \bigbreak
         Des remarques~?
     \end{frame}
-
 
     \section{Évaluation}\label{sec:evaluation}
     \begin{frame}{Évaluation}
@@ -62,7 +63,7 @@
 
                 \item 7 ans de conseil en développement au sein d'SSII~.
 
-                \item 7 ans de conseil en développement à mon compte \href{https://papit.fr}{PapIT}.
+                \item 8 ans de conseil en développement à mon compte \href{https://papit.fr}{PapIT}.
 
                 \item Passionné~!
                 \bigbreak
@@ -113,17 +114,44 @@
         \end{columns}
     \end{frame}
 
+    \begin{frame}{Front ou back, Wooclap NUDMYH)}{Next.JS}
+        \centering
+        \includegraphics[width=8cm]{image/wooclap-NUDMYH}
+    \end{frame}
+
+    \begin{frame}{Front ou back, Wooclap NUDMYH}{React de Facebook}
+        \centering
+        \includegraphics[width=8cm]{image/wooclap-NUDMYH}
+    \end{frame}
+
+    \begin{frame}{Front ou back, Wooclap NUDMYH}{Express (Node JS)}
+        \centering
+        \includegraphics[width=8cm]{image/wooclap-NUDMYH}
+    \end{frame}
+
+    \begin{frame}{Front ou back, Wooclap NUDMYH}{Vue.JS}
+        \centering
+        \includegraphics[width=8cm]{image/wooclap-NUDMYH}
+    \end{frame}
+
+    \begin{frame}{Front ou back, Wooclap NUDMYH}
+        \href{https://app.wooclap.com/events/NUDMYH/questions/68d2fccb2cb7398e024e072b}{Énumérer les différences entre backend et frontend~?}
+        \bigbreak
+        \centering
+        \includegraphics[width=5cm]{image/two-side-mirror}
+    \end{frame}
+
 
     \section{Les protocoles du Web}\label{sec:protocoles}
 
     \begin{frame}{Les protocoles}{Introductions\footnote{\label{sendbird-protocole}Protocoles de communication WebSocket vs. HTTP, \url{https://sendbird.com/fr/developer/tutorials/websocket-vs-http-communication-protocols}}}
-        Si on définit le Web comme les applications entre un navigateur et un serveur Web.
+        Si on définit le Web comme les applications communicants entre un navigateur et un serveur Web.
         \begin{dangercolorbox}
             Ce qui est très réducteur, car il ne prend pas en compte les applications mobiles, les API, les applications desktop, mail, etc.
 
             Mais c'est l'unique sujet de ce module\ldots
         \end{dangercolorbox}
-        Quels sont les protocoles qui permettent à ces applications de communiquer~?
+        \href{https://app.wooclap.com/events/NUDMYH/questions/68d2fb6cbbf6a5629eb98f90}{Quels sont les protocoles qui permettent à ces applications de communiquer~?}
         \pause
         \bigbreak
         Il n'y en a que 2~!
@@ -212,12 +240,13 @@
         Dans un groupe de deux ou trois~:
         \begin{itemize}
             \item Développer une page HTML avec un JavaScript se connectant à un serveur WebSocket avec la techno/librairie de votre choix.
-            \item Développer un serveur WebSocket avec la techno/librairie de votre choix.
+            \item Développer un serveur backend WebSocket avec la techno/librairie de votre choix.
+            Ce serveur va servir l'heure au frontend quand un bouton sera cliqué sur ce dernier.
             \item Les livrables, codes source \textbf{commentés} et captures d'écran, sont à déposer dans Teams.
         \end{itemize}
         \begin{dangercolorbox}
             À la vue de l'omniprésence de ce protocole sur de nombreuses technos et de la bonne compatibilité des méthodes.
-            Est-il nécessaire d'utiliser des librairies (dépendances logicielles)~?
+            Est-il nécessaire d'utiliser des librairies côté frontend (dépendances logicielles)~?
         \end{dangercolorbox}
     \end{frame}
 
@@ -246,10 +275,10 @@
     \begin{frame}{HTTP}{Méthodes courantes\cref{mozilla-http-methods}}
         \begin{itemize}
             \item \lstinline{GET} : Récupère une ressource, sans modifier l'état du serveur (idempotence).
-            Autorisée dans les \lstinline{<form>} HTML.
+            Autorisée dans les \lstinline{<form>} HTML. Des données peuvent être envoyées dans l'URL~.
             \item \lstinline{HEAD} : Similaire à \lstinline{GET}~, sans le corps de la réponse.
-            \item \lstinline{POST} : Envoie des données, créant ou modifiant une ressource.
-            Autorisée dans les \lstinline{<form>} HTML.
+            \item \lstinline{POST} : Envoie des données dans le corps de la requête, créant ou modifiant une ressource.
+            Autorisée dans les \lstinline{<form>} HTML~.
             \item \lstinline{PUT} : Remplace la ressource avec les données envoyées.
             \item \lstinline{DELETE} : Supprime une ressource.
         \end{itemize}
@@ -291,6 +320,8 @@
     \end{frame}
 
     \begin{frame}{HTTP}{Introduction à Content-Type\footnote{\label{mozilla-content-type}Content-Type, \url{https://developer.mozilla.org/fr/docs/Web/HTTP/Headers/Content-Type}}}
+        \href{https://app.wooclap.com/events/NUDMYH/questions/68d2fc6907003967e10f34dd}{Quelles types de documents~?}
+        \pause
         \begin{itemize}
             \item \textbf{Content-Type} : Indique le type MIME de la ressource.
             \item Utilisé dans les réponses pour informer le client du type de contenu renvoyé.
@@ -298,8 +329,8 @@
         \end{itemize}
         \bigbreak
         Pourquoi pas dans les GET~?
-
-        La donnée est toujours dans l'URL et non dans le corps de la requête comme pour le POST.
+        \pause
+        La donnée est toujours dans l'URL et non dans le corps de la requête comme pour le POST~.
         C'est donc inutile.
     \end{frame}
 
@@ -379,7 +410,7 @@
 
     \section{Définition d'un frameworks}\label{subsec:framewok-definition}
 
-    \begin{frame}{Les Frameworks}{Qu'est-ce qu'un framework en programmation et en ingénierie~?\footnote{Qu'est-ce qu'un framework en programmation et en ingénierie ?, \url{https://aws.amazon.com/fr/what-is/framework/}}}
+    \begin{frame}{Les Frameworks}{Qu'est-ce qu'un framework en programmation et en ingénierie~?\footnote{Qu'est-ce qu'un framework en programmation et en ingénierie~?, \url{https://aws.amazon.com/fr/what-is/framework/}}}
         \begin{small}
             En génie logiciel et en programmation, un framework est un ensemble de composants logiciels réutilisables qui permettent de développer de nouvelles applications plus efficacement.
             La réutilisation du développement et de la recherche existants est un principe essentiel dans tous les domaines de l'ingénierie.
@@ -596,12 +627,22 @@ export default App;
             \end{itemize}
         \end{columns}
     \end{frame}
-    
+
+    \begin{frame}{Les Frameworks}{Les différences Flask et Django}
+        \href{https://app.wooclap.com/events/NUDMYH/questions/68d2fd2007003967e11025cb}{Les intérêts d'un ORM à part VS Django~?}
+        \pause
+        \begin{itemize}
+            \item \textbf{Django} est un framework complet, avec ORM (Django ORM), templating (Django Template Language (DTL), authentification, panneau d'administration, \textit{etc}.
+            \item \textbf{Flask} est un micro-framework, minimaliste, qui laisse le choix des composants à l'utilisateur.
+            \item Les deux ont des plugins pour être complétés.
+        \end{itemize}
+    \end{frame}
+
     \begin{frame}{Les Frameworks}{Framework back-end, les tendances}
         \centering
         \includegraphics[width=11cm]{image/back-end-trends}
     \end{frame}
-    
+
     \begin{frame}{Les Frameworks}{Framework back-end, exercices}
         Exercice \execcounterdispinc{}, avec Flask, \textit{donner vie} aux fichiers HTML développés précédemment~:
         \bigbreak
