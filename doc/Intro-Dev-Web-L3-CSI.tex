@@ -27,6 +27,7 @@
         \tableofcontents
     \end{frame}
 
+
     \section{Programme du module}\label{sec:programme-du-module}
     \begin{frame}{Introduction au Développement Web}{Compétences}
         Programme officiel du module~:
@@ -41,6 +42,7 @@
         \bigbreak
         Des remarques~?
     \end{frame}
+
 
     \section{Évaluation}\label{sec:evaluation}
     \begin{frame}{Évaluation}
@@ -85,7 +87,7 @@
 
     \section{Les ressources du Web}\label{sec:ressources}
 
-    \begin{frame}{Les ressources du Web}{Dvisions en briques}
+    \begin{frame}{Les ressources du Web}{Division en briques}
         \begin{columns}
             \column{0.6\textwidth}
             1 des 4 règles pour la direction de l'esprit de Descartes~: \textquote{Diviser chacune des difficultés que j'examinerais, en autant de parcelles qu'il se pourrait et qu'il serait requis pour les mieux résoudre.}.
@@ -241,7 +243,7 @@
         \begin{itemize}
             \item Développer une page HTML avec un JavaScript se connectant à un serveur WebSocket avec la techno/librairie de votre choix.
             \item Développer un serveur backend WebSocket avec la techno/librairie de votre choix.
-            Ce serveur va servir l'heure au frontend quand un bouton sera cliqué sur ce dernier.
+            Ce serveur va servir l'heure au frontend sans demande sa part.
             \item Les livrables, codes source \textbf{commentés} et captures d'écran, sont à déposer dans Teams.
         \end{itemize}
         \begin{dangercolorbox}
@@ -274,13 +276,13 @@
 
     \begin{frame}{HTTP}{Méthodes courantes\cref{mozilla-http-methods}}
         \begin{itemize}
-            \item \lstinline{GET} : Récupère une ressource, sans modifier l'état du serveur (idempotence).
+            \item \lstinline{GET}~: Récupère une ressource, sans modifier l'état du serveur (idempotence).
             Autorisée dans les \lstinline{<form>} HTML. Des données peuvent être envoyées dans l'URL~.
-            \item \lstinline{HEAD} : Similaire à \lstinline{GET}~, sans le corps de la réponse.
-            \item \lstinline{POST} : Envoie des données dans le corps de la requête, créant ou modifiant une ressource.
+            \item \lstinline{HEAD}~: Similaire à \lstinline{GET}~, sans le corps de la réponse.
+            \item \lstinline{POST}~: Envoie des données dans le corps de la requête, créant ou modifiant une ressource.
             Autorisée dans les \lstinline{<form>} HTML~.
-            \item \lstinline{PUT} : Remplace la ressource avec les données envoyées.
-            \item \lstinline{DELETE} : Supprime une ressource.
+            \item \lstinline{PUT}~: Remplace la ressource avec les données envoyées.
+            \item \lstinline{DELETE}~: Supprime une ressource.
         \end{itemize}
         \begin{dangercolorbox}
             \lstinline{POST} et \lstinline{GET} sont compatibles avec les formulaires, mais à quoi donc servent alors les autres~?
@@ -289,10 +291,10 @@
 
     \begin{frame}{HTTP}{Autres méthodes\cref{mozilla-http-methods}}
         \begin{itemize}
-            \item \lstinline{CONNECT} : Établit un tunnel vers le serveur cible.
-            \item \lstinline{OPTIONS} : Renvoie les options de communication avec la ressource.
-            \item \lstinline{TRACE} : Effectue un test aller-retour sur le chemin suivi.
-            \item \lstinline{PATCH} : Applique des modifications partielles à une ressource.
+            \item \lstinline{CONNECT}~: Établit un tunnel vers le serveur cible.
+            \item \lstinline{OPTIONS}~: Renvoie les options de communication avec la ressource.
+            \item \lstinline{TRACE}~: Effectue un test aller-retour sur le chemin suivi.
+            \item \lstinline{PATCH}~: Applique des modifications partielles à une ressource.
         \end{itemize}
     \end{frame}
 
@@ -323,7 +325,7 @@
         \href{https://app.wooclap.com/events/NUDMYH/questions/68d2fc6907003967e10f34dd}{Quelles types de documents~?}
         \pause
         \begin{itemize}
-            \item \textbf{Content-Type} : Indique le type MIME de la ressource.
+            \item \textbf{Content-Type}~: Indique le type MIME de la ressource.
             \item Utilisé dans les réponses pour informer le client du type de contenu renvoyé.
             \item Utilisé dans les requêtes POST/PUT pour indiquer au serveur le type de données envoyées.
         \end{itemize}
@@ -336,13 +338,13 @@
 
     \begin{frame}{HTTP}{Directives de Content-Type\cref{mozilla-content-type}}
         \begin{itemize}
-            \item \lstinline{media-type} : Type MIME des données.
-            \item \lstinline{charset} : Encodage des caractères.
-            \item \lstinline{boundary} : Limites pour les entités multipart.
+            \item \lstinline{media-type}~: Type MIME des données.
+            \item \lstinline{charset}~: Encodage des caractères.
+            \item \lstinline{boundary}~: Limites pour les entités multipart.
         \end{itemize}
     \end{frame}
 
-    \begin{frame}[fragile]{HTTP}{Exemple : Formulaires HTML\cref{mozilla-content-type}}
+    \begin{frame}[fragile]{HTTP}{Exemple~: Formulaires HTML\cref{mozilla-content-type}}
         \begin{lstlisting}[language=HTML]
 <form action="/" method="post" enctype="multipart/form-data">
   <input type="text" name="description" value="du texte" />
@@ -576,7 +578,7 @@ export default App;
         Les frameworks back-end sont des librairies qui permettent de construire des applications web en fournissant des fonctionnalités de base autour du HTTP et du templating HTML.
         \bigbreak
         Ils sont souvent utilisés pour construire des API REST (JSON).
-        Le moteur de templating permet un meilleur SEO (référencement naturel) qu'une UI générée \textit{server-side} car le rendu est plus rapide.
+        Le moteur de templating permet un meilleur SEO (référencement naturel) qu'une UI générée \textit{client-side} car le rendu est plus rapide.
         \bigbreak
         Parmi les plus populaires~:
         \begin{itemize}
@@ -652,11 +654,62 @@ export default App;
                 \item Utiliser les templates pour n'écrire qu'une fois le header et le footer et l'accès aux fichiers statiques pour le CSS et JS.
                 Configurer Flask pour utiliser ces dossiers.
                 \item Ne pas développer de base de données complexe.
-                Un dictionnaire pour stocker les données du formulaire suffira.
+                Une liste de classes \href{https://docs.pydantic.dev/latest/}{Pydantic} pour stocker les données du formulaire suffira.
+                \item Les boutons doivent être fonctionnels.
             \end{itemize}
             \column{0.4\textwidth}
             \centering
             \includegraphics[width=5cm]{image/html-alive}
+        \end{columns}
+    \end{frame}
+
+    \begin{frame}{FastAPI, définition\footnote{\url{https://fastapi.tiangolo.com/}}}
+        \textbf{FastAPI} est un framework Web moderne pour Python pour créer des APIs REST.
+
+        D’après la doc officielle~:
+        \begin{itemize}
+            \item \textbf{Rapide}~: très hautes performances, comparable à Node.js et Go, grâce à Starlette (serveur ASGI \url{https://starlette.dev/}) et Pydantic (validation de donnée \url{https://docs.pydantic.dev}).
+            \item \textbf{Rapide à développer}~: développement 2 à 3 fois plus rapide.
+            \item \textbf{Moins d’erreurs}~: validation automatique des données grâce à Pydantic.
+            \item \textbf{Docs automatiques}~: Swagger UI (/docs) et ReDoc (/redoc).
+            \item \textbf{Prêt pour la prod}~: basé sur des standards ouverts (OpenAPI, JSON Schema, \ldots).
+        \end{itemize}
+    \end{frame}
+
+    \begin{frame}[fragile]{Exemple minimal}
+        \begin{lstlisting}[language=Java,basicstyle=\tiny\ttfamily]
+from fastapi import FastAPI
+
+app = FastAPI()
+
+@app.get("/")
+def read_root():
+    return {"message": "Bonjour FastAPI"} # Un dictionnaire devient un JSON!
+        \end{lstlisting}
+        \begin{itemize}
+            \item On crée une instance \texttt{FastAPI()}.
+            \item On déclare une route avec le décorateur \texttt{@app.get("/")}.
+            \item La doc interactive est disponible automatiquement.
+            \item Vient avec un serveur de production, \href{https://uvicorn.dev/}{uvicorn}, si on l'installe avec la commande \lstinline{pip install fastapi[all]}.
+            \item Permet d'avoir des routes asynchrones (coroutines) avec \lstinline{async def}\footnote{FastAPI, Asynchronous Code, \url{https://fastapi.tiangolo.com/async/\#asynchronous-code}}.
+        \end{itemize}
+    \end{frame}
+
+
+    \begin{frame}{Les Frameworks}{Framework back-end, exercices}
+        \begin{columns}
+            \column{0.6\textwidth}
+            Exercice \execcounterdispinc{}, avec Django~:
+            \begin{itemize}
+                \item Installer et faire tourner Django dans un environnement virtuel.
+                À l'image du tutoriel \url{https://docs.djangoproject.com/fr/5.2/intro/tutorial01/}.
+                \item À la différence du tutoriel, l'app sera un système de gestion de parkings.
+                \item Il localise l'utilisateur se connectant, lui indique sa géolocalisation sur la page d'accueil.
+                Elle pourra plus tard être utilisée pour sélectionner un parking à proximité.
+            \end{itemize}
+            \column{0.4\textwidth}
+            \centering
+            \includegraphics[width=4cm]{image/django-drawing} \\ \href{https://www.flickr.com/photos/espinosa_rosique/16749672584}{Django Reinhardt by A. Espinosa}, \href{https://creativecommons.org/licenses/by-nc/2.0/}{CC BY-NC 2.0}
         \end{columns}
     \end{frame}
 
